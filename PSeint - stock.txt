@@ -1,0 +1,56 @@
+Algoritmo OrganizacionStock
+	// Defino 3 como cantidad de productos
+	Dimensionar nombreProducto(3)
+	Dimensionar talleProducto(3)
+	Dimensionar colorProducto(3)
+	Dimensionar stockInicialProducto(3)
+	Dimensionar precioProducto(3)
+	Dimensionar codigoProducto(3)
+	// PRIMERA PARTE: Ingreso de los productos (3)
+	Para nroProducto<-1 Hasta 3 Hacer
+		Escribir 'Ingrese el nombre del producto', nroProducto
+		Leer nombre
+		nombreProducto[nroProducto] <- nombre
+		Escribir 'Ingrese el talle del producto', nroProducto
+		Leer talle
+		talleProducto[nroProducto] <- talle
+		Escribir 'Ingrese el color del producto', nroProducto
+		Leer color
+		colorProducto[nroProducto] <- color
+		Escribir 'Ingrese la cantidad Disponible en Stock del producto', nroProducto
+		Leer stock
+		stockInicialProducto[nroProducto] <- stock
+		Escribir 'Ingrese el precio del producto', nroProducto
+		Leer precio
+		precioProducto[nroProducto] <- precio
+		// Asigno el código del producto
+		codigo <- 'codigo00'+ConvertirATexto(nroProducto)
+		codigoProducto[nroProducto] <- codigo
+	FinPara
+	// Imprimo los datos de los productos ingresados
+	Para nroProducto<-1 Hasta 3 Hacer
+		Escribir 'Datos del Producto: ', nroProducto
+		Escribir 'Codigo: ', codigoProducto[nroProducto]
+		Escribir 'Nombre: ', nombreProducto[nroProducto]
+		Escribir 'Talle: ', talleProducto[nroProducto]
+		Escribir 'Color: ', colorProducto[nroProducto]
+		Escribir 'Sotck: ', stockInicialProducto[nroProducto]
+		Escribir 'Precio: ', precioProducto[nroProducto]
+		Escribir '*******************************************************'
+	FinPara
+	Escribir 'Stock organizado!'
+	// SEGUNDA PARTE: Consulta Disponibilidad de Stock
+	Escribir '¿Código de producto?'
+	Leer codigo
+	Para nroProducto<-1 Hasta 3 Hacer
+		Si codigoProducto[nroProducto]==codigo Entonces
+			productoEncontrado <- 1
+			stockProductoEncontrado <- stockInicialProducto[nroProducto]
+		FinSi
+	FinPara
+	Si productoEncontrado==1 Entonces
+		Escribir 'Stock: ', stockProductoEncontrado
+	SiNo
+		Escribir 'Código no encontrado'
+	FinSi
+FinAlgoritmo
